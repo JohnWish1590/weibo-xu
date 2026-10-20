@@ -150,7 +150,7 @@ img { max-width:100%; }
 
 /* ---------- 单篇 ---------- */
 .f-editorial-post { max-width:var(--col); margin:0 auto 46px; }
-.f-editorial-eyebrow { display:flex; align-items:baseline; gap:10px;
+.f-editorial-eyebrow { display:flex; align-items:baseline; gap:2px 10px;
   flex-wrap:wrap; }
 .ed-mirror { font-size:10.5px; letter-spacing:.08em; color:#b8b0a4;
   font-variant-numeric:tabular-nums; white-space:nowrap; }
@@ -216,6 +216,8 @@ mark { background:#f7e6ae; color:inherit; padding:0 1px; border-radius:2px; }
   .ed-daysep span { letter-spacing:.12em; }
   .ed-colophon { padding:0 18px 28px; }
   .ed-colophon p { font-size:11.5px; line-height:1.9; }
+  /* 窄屏：把镜像时间单独放一行，避免发帖时间被挤成参差的多行 */
+  .ed-mirror { flex:0 0 100%; }
   .f-editorial-src { display:none; }
   .f-editorial-snap { display:none; }
 }
