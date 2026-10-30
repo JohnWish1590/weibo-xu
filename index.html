@@ -4,19 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>不会游泳的徐胖子 · 微博存档（2026-09-07 起）</title>
-<meta name="theme-color" content="#fbfaf7">
+<meta name="theme-color" content="#faf9f5">
 <script>
 /* apply the saved 底色 before first paint, so there is no flash */
 (function () {
-  var P = {warm:['#fbfaf7','#ddd8ca','#eae6dc'],
-           white:['#ffffff','#dcdcd8','#eeeeea'],
-           cool:['#f7f8fa','#d8dde5','#e8ecf1']};
+  var P = {warm:['#faf9f5','#e8e3d8','#f2efe8','#1a1a1a','#5f5a52','#8a2b2b','#262626','#57534c','#8a8478','#6b6157'],
+           white:['#ffffff','#e0e0e0','#f0f0f0','#111111','#555555','#e03131','#262626','#57534c','#8a8478','#555555'],
+           cool:['#f4f6f8','#dde3e8','#eef2f5','#1a1a1a','#5f5a52','#8a2b2b','#262626','#57534c','#8a8478','#6b6157'],
+           dark:['#16181d','#2c2f36','#21242b','#e7e7e3','#9aa0a6','#ff6b6b','#c9c9c4','#9a9a95','#80868b','#b8b0a4']};
   var k = 'warm';
   try { k = localStorage.getItem('xz-pal') || 'warm'; } catch (_) {}
   var v = P[k] || P.warm, s = document.documentElement.style;
-  s.setProperty('--paper', v[0]);
-  s.setProperty('--rule',  v[1]);
-  s.setProperty('--rule2', v[2]);
+  s.setProperty('--paper', v[0]); s.setProperty('--rule', v[1]); s.setProperty('--rule2', v[2]);
+  s.setProperty('--ink', v[3]); s.setProperty('--muted', v[4]); s.setProperty('--accent', v[5]);
+  s.setProperty('--cmt', v[6]); s.setProperty('--sub', v[7]); s.setProperty('--mirror', v[8]); s.setProperty('--btn', v[9]);
   var m = document.querySelector('meta[name="theme-color"]');
   if (m) m.content = v[0];
 })();
@@ -27,48 +28,48 @@
             /* 底色，可在页面顶部即时切换 */
              /* 粗分隔线 */
             /* 细分隔线 */
-  background:var(--paper); color:#1a1a1a; padding:56px 34px 46px;
+  background:var(--paper); color:var(--ink); padding:56px 34px 46px;
   font-family:"Songti SC","SimSun",Georgia,"Times New Roman",serif;
 }
 .f-editorial-author { display:flex; align-items:center; gap:13px; max-width:36em;
-  margin:0 auto 26px; padding-bottom:18px; border-bottom:2px solid #1a1a1a; }
+  margin:0 auto 26px; padding-bottom:18px; border-bottom:2px solid var(--ink); }
 .f-editorial-avatar { width:52px; height:52px; border-radius:50%;
   filter:grayscale(.25) contrast(1.05); }
 .f-editorial-name { font-size:17px; font-weight:700; letter-spacing:.06em; }
-.f-editorial-meta { font-size:11.5px; color:#8a8177; letter-spacing:.08em;
+.f-editorial-meta { font-size:11.5px; color:#6f6b62; letter-spacing:.08em;
   margin-top:3px; font-family:-apple-system,"PingFang SC",sans-serif; }
 .f-editorial-post { max-width:36em; margin:0 auto; }
-.f-editorial-eyebrow { font-size:11.5px; letter-spacing:.28em; color:#8a2b2b;
+.f-editorial-eyebrow { font-size:11.5px; letter-spacing:.28em; color:var(--accent);
   text-transform:uppercase; margin-bottom:20px;
   font-family:-apple-system,"PingFang SC",sans-serif; }
 .f-editorial-body-text { font-size:17.5px; line-height:2.02; text-align:justify; }
 .f-editorial-body-text p { margin:0 0 1.15em; text-indent:2em; }
 .f-editorial-body-text p:first-of-type::first-letter {
   float:left; font-size:3.25em; line-height:.86; padding:.06em .12em 0 0;
-  font-weight:700; color:#8a2b2b; }
+  font-weight:700; color:var(--accent); }
 .f-editorial-body-text p:first-of-type { text-indent:0; }
 .f-editorial-stats { display:flex; gap:26px; align-items:baseline; margin:30px 0 0;
   padding:16px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);
-  font-size:12px; letter-spacing:.16em; color:#8a8177;
+  font-size:12px; letter-spacing:.16em; color:#6f6b62;
   font-family:-apple-system,"PingFang SC",sans-serif; }
-.f-editorial-stats b { color:#1a1a1a; font-size:15px; margin-right:4px;
+.f-editorial-stats b { color:var(--ink); font-size:15px; margin-right:4px;
   font-variant-numeric:tabular-nums; }
 .f-editorial-snap { margin-left:auto; font-size:11px; letter-spacing:.06em; }
 .f-editorial-cmts { margin-top:34px; }
-.f-editorial-cmts-title { font-size:12px; letter-spacing:.26em; color:#8a8177;
+.f-editorial-cmts-title { font-size:12px; letter-spacing:.26em; color:#6f6b62;
   margin-bottom:16px; font-family:-apple-system,"PingFang SC",sans-serif; }
 .f-editorial-cmts-title em { font-style:normal; letter-spacing:.06em; }
 .f-editorial-item { padding:15px 0; border-top:1px solid var(--rule2); }
 .f-editorial-head { display:flex; gap:10px; align-items:baseline; font-size:12px;
-  color:#8a8177; margin-bottom:5px;
+  color:#6f6b62; margin-bottom:5px;
   font-family:-apple-system,"PingFang SC",sans-serif; }
-.f-editorial-head b { color:#1a1a1a; letter-spacing:.04em; }
+.f-editorial-head b { color:var(--ink); letter-spacing:.04em; }
 .f-editorial-like { margin-left:auto; }
-.f-editorial-body { font-size:15.5px; line-height:1.9; color:#332f2a; }
+.f-editorial-body { font-size:15.5px; line-height:1.9; color:var(--cmt); }
 .f-editorial-sub { margin:9px 0 0 20px; padding-left:13px; border-left:2px solid var(--rule);
-  font-size:14.5px; line-height:1.8; color:#5c554c; }
-.f-editorial-subuser { color:#8a2b2b; margin-right:7px; }
-.f-editorial-more { font-size:12px; color:#a9a196; padding:14px 0 0;
+  font-size:14.5px; line-height:1.8; color:var(--sub); }
+.f-editorial-subuser { color:var(--accent); margin-right:7px; }
+.f-editorial-more { font-size:12px; color:#9a958a; padding:14px 0 0;
   font-family:-apple-system,"PingFang SC",sans-serif; }
 @container (max-width:480px) {
   .f-editorial { padding:30px 18px 30px; }
@@ -81,8 +82,9 @@
 
 /* ============ page shell（放在 A_CSS 之后，便于覆盖）============ */
 :root {
-  --paper:#fbfaf7; --rule:#ddd8ca; --rule2:#eae6dc;
-  --ink:#1a1a1a; --muted:#8a8177; --accent:#8a2b2b; --col:630px;
+  --paper:#faf9f5; --rule:#e8e3d8; --rule2:#f2efe8;
+  --ink:#1a1a1a; --muted:#5f5a52; --accent:#8a2b2b; --col:630px;
+  --cmt:#262626; --sub:#57534c; --mirror:#8a8478; --btn:#6b6157;
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; scroll-padding-top:150px; }
@@ -104,7 +106,7 @@ img { max-width:100%; }
 .ed-id { min-width:0; }
 .ed-id h1 { margin:0; font-family:"Songti SC","SimSun",Georgia,serif;
   font-size:18px; letter-spacing:.05em; }
-.ed-sub { font-size:11.5px; color:var(--muted); letter-spacing:.05em;
+.ed-sub { font-size:12.5px; color:var(--muted); letter-spacing:.05em;
   margin-top:4px; line-height:1.6; }
 .ed-sub .nb { white-space:nowrap; }
 .ed-tools { display:flex; align-items:center; gap:9px; flex-wrap:wrap; }
@@ -124,8 +126,8 @@ img { max-width:100%; }
   font-family:inherit; font-size:13px; color:var(--ink); padding:5px 2px;
   outline:none; width:190px; border-radius:0; }
 #q:focus { border-bottom-color:var(--accent); }
-#q::placeholder { color:#b8b0a4; }
-.ed-btn { border:1px solid var(--rule); background:transparent; color:#6b6157;
+#q::placeholder { color:var(--mirror); }
+.ed-btn { border:1px solid var(--rule); background:transparent; color:var(--btn);
   font-family:inherit; font-size:12px; padding:5px 11px; border-radius:2px;
   cursor:pointer; white-space:nowrap; transition:.15s; }
 .ed-btn:hover { border-color:var(--accent); color:var(--accent); }
@@ -152,13 +154,13 @@ img { max-width:100%; }
 .f-editorial-post { max-width:var(--col); margin:0 auto 46px; }
 .f-editorial-eyebrow { display:flex; align-items:baseline; gap:2px 10px;
   flex-wrap:wrap; }
-.ed-mirror { font-size:10.5px; letter-spacing:.08em; color:#b8b0a4;
+.ed-mirror { font-size:11px; letter-spacing:.08em; color:var(--mirror);
   font-variant-numeric:tabular-nums; white-space:nowrap; }
 .f-editorial-src { margin-left:auto; font-size:11px; letter-spacing:.04em;
-  color:#a9a196; }
+  color:#9a958a; }
 .f-editorial-when { font-variant-numeric:tabular-nums; }
 .sub-to { color:var(--muted); }
-.f-editorial-subtext { font-size:14.5px; line-height:1.8; color:#5c554c; }
+.f-editorial-subtext { font-size:14.5px; line-height:1.8; color:var(--sub); }
 
 /* ---------- 评论折叠 ---------- */
 .ed-toggle { display:flex; align-items:center; gap:10px; width:100%;
@@ -168,7 +170,7 @@ img { max-width:100%; }
 .ed-toggle-x { margin-left:auto; font-size:11.5px; letter-spacing:.16em;
   color:var(--muted); }
 .ed-toggle:hover .ed-toggle-x { color:var(--accent); }
-.ed-nocmt { margin-top:18px; font-size:11.5px; letter-spacing:.1em; color:#b8b0a4; }
+.ed-nocmt { margin-top:18px; font-size:11.5px; letter-spacing:.1em; color:var(--mirror); }
 .f-editorial-cmts { margin-top:4px; }
 
 mark { background:#f7e6ae; color:inherit; padding:0 1px; border-radius:2px; }
@@ -184,10 +186,10 @@ mark { background:#f7e6ae; color:inherit; padding:0 1px; border-radius:2px; }
 .ed-colophon p { margin:0; max-width:52em; font-size:12px; line-height:1.95;
   letter-spacing:.03em; color:var(--muted);
   font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif; }
-.ed-colophon b { color:#6b6157; font-weight:600; }
+.ed-colophon b { color:var(--btn); font-weight:600; }
 #totop { position:fixed; right:24px; bottom:24px; width:38px; height:38px;
   border-radius:50%; border:1px solid var(--rule); background:var(--paper);
-  color:#6b6157; cursor:pointer; display:none; font-size:15px; line-height:1;
+  color:var(--btn); cursor:pointer; display:none; font-size:15px; line-height:1;
   box-shadow:0 3px 12px rgba(0,0,0,.06); }
 #totop.show { display:block; }
 
@@ -199,7 +201,7 @@ mark { background:#f7e6ae; color:inherit; padding:0 1px; border-radius:2px; }
   .ed-avatar { width:38px; height:38px; }
   .ed-id h1 { font-size:16px; white-space:nowrap; overflow:hidden;
     text-overflow:ellipsis; }
-  .ed-sub { font-size:10.5px; letter-spacing:0; display:-webkit-box;
+  .ed-sub { font-size:11px; letter-spacing:0; display:-webkit-box;
     -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
   .ed-id { flex:1 1 120px; }
   .ed-pal { gap:6px; }
@@ -242,7 +244,7 @@ mark { background:#f7e6ae; color:inherit; padding:0 1px; border-radius:2px; }
         <span class="nb">抓取于 2026-10-06 22:42</span> · <span class="nb">补抓于 2026-10-28 20:35</span></div>
     </div>
     <div class="ed-pal" role="group" aria-label="底色">
-      <span class="ed-pal-l">底色</span><button class="ed-sw on" data-pal="warm" style="--sw:#fbfaf7" type="button" title="暖纸白" aria-label="底色：暖纸白"></button><button class="ed-sw" data-pal="white" style="--sw:#ffffff" type="button" title="纯白" aria-label="底色：纯白"></button><button class="ed-sw" data-pal="cool" style="--sw:#f7f8fa" type="button" title="冷浅灰" aria-label="底色：冷浅灰"></button>
+      <span class="ed-pal-l">底色</span><button class="ed-sw on" data-pal="warm" style="--sw:#faf9f5" type="button" title="暖纸白" aria-label="底色：暖纸白"></button><button class="ed-sw" data-pal="white" style="--sw:#ffffff" type="button" title="纯白" aria-label="底色：纯白"></button><button class="ed-sw" data-pal="cool" style="--sw:#f4f6f8" type="button" title="冷浅灰" aria-label="底色：冷浅灰"></button><button class="ed-sw" data-pal="dark" style="--sw:#16181d" type="button" title="深色" aria-label="底色：深色"></button>
     </div>
     <div class="ed-tools">
       <input id="q" type="search" placeholder="搜索正文 / 评论…">
@@ -521,11 +523,12 @@ mark { background:#f7e6ae; color:inherit; padding:0 1px; border-radius:2px; }
 <button id="totop" title="回到顶部">↑</button>
 
 <script>
-/* ---- 底色切换：暖纸白 / 纯白 / 冷浅灰 ---- */
+/* ---- 底色切换：暖纸白 / 纯白 / 冷浅灰 / 深色 ---- */
 const PALS = {
-  warm:  {paper:'#fbfaf7', rule:'#ddd8ca', rule2:'#eae6dc'},
-  white: {paper:'#ffffff', rule:'#dcdcd8', rule2:'#eeeeea'},
-  cool:  {paper:'#f7f8fa', rule:'#d8dde5', rule2:'#e8ecf1'}
+  warm:  {paper:'#faf9f5', rule:'#e8e3d8', rule2:'#f2efe8', ink:'#1a1a1a', muted:'#5f5a52', accent:'#8a2b2b', cmt:'#262626', sub:'#57534c', mirror:'#8a8478', btn:'#6b6157'},
+  white: {paper:'#ffffff', rule:'#e0e0e0', rule2:'#f0f0f0', ink:'#111111', muted:'#555555', accent:'#e03131', cmt:'#262626', sub:'#57534c', mirror:'#8a8478', btn:'#555555'},
+  cool:  {paper:'#f4f6f8', rule:'#dde3e8', rule2:'#eef2f5', ink:'#1a1a1a', muted:'#5f5a52', accent:'#8a2b2b', cmt:'#262626', sub:'#57534c', mirror:'#8a8478', btn:'#6b6157'},
+  dark:  {paper:'#16181d', rule:'#2c2f36', rule2:'#21242b', ink:'#e7e7e3', muted:'#9aa0a6', accent:'#ff6b6b', cmt:'#c9c9c4', sub:'#9a9a95', mirror:'#80868b', btn:'#b8b0a4'}
 };
 const sws = [...document.querySelectorAll('.ed-sw')];
 function setPal(k) {
@@ -533,6 +536,13 @@ function setPal(k) {
   s.setProperty('--paper', c.paper);
   s.setProperty('--rule',  c.rule);
   s.setProperty('--rule2', c.rule2);
+  s.setProperty('--ink', c.ink);
+  s.setProperty('--muted', c.muted);
+  s.setProperty('--accent', c.accent);
+  s.setProperty('--cmt', c.cmt);
+  s.setProperty('--sub', c.sub);
+  s.setProperty('--mirror', c.mirror);
+  s.setProperty('--btn', c.btn);
   sws.forEach(b => b.classList.toggle('on', b.dataset.pal === k));
   const m = document.querySelector('meta[name="theme-color"]');
   if (m) m.content = c.paper;
