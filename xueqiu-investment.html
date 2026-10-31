@@ -17,6 +17,9 @@
   s.setProperty('--paper', v[0]); s.setProperty('--rule', v[1]); s.setProperty('--rule2', v[2]);
   s.setProperty('--ink', v[3]); s.setProperty('--muted', v[4]); s.setProperty('--accent', v[5]);
   s.setProperty('--cmt', v[6]); s.setProperty('--sub', v[7]); s.setProperty('--mirror', v[8]); s.setProperty('--btn', v[9]);
+  var FS = {s:1, m:1.15, l:1.32}, fk = 's';
+  try { fk = localStorage.getItem('xz-fs') || 's'; } catch (_) {}
+  s.setProperty('--fs', (FS[fk] || 1));
   var m = document.querySelector('meta[name="theme-color"]');
   if (m) m.content = v[0];
 })();
@@ -27,10 +30,10 @@
             /* 底色，可在页面顶部即时切换 */
              /* 粗分隔线 */
             /* 细分隔线 */
-  background:var(--paper); color:var(--ink); padding:56px 34px 46px;
+  background:var(--paper); color:var(--ink); padding:56px 24px 46px;
   font-family:"Songti SC","SimSun",Georgia,"Times New Roman",serif;
 }
-.f-editorial-author { display:flex; align-items:center; gap:13px; max-width:36em;
+.f-editorial-author { display:flex; align-items:center; gap:13px; max-width:var(--shell);
   margin:0 auto 26px; padding-bottom:18px; border-bottom:2px solid var(--ink); }
 .f-editorial-avatar { width:52px; height:52px; border-radius:50%;
   filter:grayscale(.25) contrast(1.05); }
@@ -38,42 +41,42 @@
 .f-editorial-meta { font-size:11.5px; color:#6f6b62; letter-spacing:.08em;
   margin-top:3px; font-family:-apple-system,"PingFang SC",sans-serif; }
 .f-editorial-post { max-width:36em; margin:0 auto; }
-.f-editorial-eyebrow { font-size:11.5px; letter-spacing:.28em; color:var(--accent);
+.f-editorial-eyebrow { font-size:calc(11.5px * var(--fs)); letter-spacing:.28em; color:var(--accent);
   text-transform:uppercase; margin-bottom:20px;
   font-family:-apple-system,"PingFang SC",sans-serif; }
-.f-editorial-body-text { font-size:17.5px; line-height:2.02; text-align:justify; }
+.f-editorial-body-text { font-size:calc(16px * var(--fs)); line-height:2.02; text-align:justify; }
 .f-editorial-body-text p { margin:0 0 1.15em; text-indent:2em; }
 .f-editorial-body-text p:first-of-type::first-letter {
-  float:left; font-size:3.25em; line-height:.86; padding:.06em .12em 0 0;
+  float:left; font-size:1.9em; line-height:.9; padding:.04em .1em 0 0;
   font-weight:700; color:var(--accent); }
 .f-editorial-body-text p:first-of-type { text-indent:0; }
 .f-editorial-stats { display:flex; gap:26px; align-items:baseline; margin:30px 0 0;
   padding:16px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);
-  font-size:12px; letter-spacing:.16em; color:#6f6b62;
+  font-size:calc(12px * var(--fs)); letter-spacing:.16em; color:#6f6b62;
   font-family:-apple-system,"PingFang SC",sans-serif; }
-.f-editorial-stats b { color:var(--ink); font-size:15px; margin-right:4px;
+.f-editorial-stats b { color:var(--ink); font-size:calc(15px * var(--fs)); margin-right:4px;
   font-variant-numeric:tabular-nums; }
 .f-editorial-snap { margin-left:auto; font-size:11px; letter-spacing:.06em; }
 .f-editorial-cmts { margin-top:34px; }
-.f-editorial-cmts-title { font-size:12px; letter-spacing:.26em; color:#6f6b62;
+.f-editorial-cmts-title { font-size:calc(12px * var(--fs)); letter-spacing:.26em; color:#6f6b62;
   margin-bottom:16px; font-family:-apple-system,"PingFang SC",sans-serif; }
 .f-editorial-cmts-title em { font-style:normal; letter-spacing:.06em; }
 .f-editorial-item { padding:15px 0; border-top:1px solid var(--rule2); }
-.f-editorial-head { display:flex; gap:10px; align-items:baseline; font-size:12px;
+.f-editorial-head { display:flex; gap:10px; align-items:baseline; font-size:calc(12px * var(--fs));
   color:#6f6b62; margin-bottom:5px;
   font-family:-apple-system,"PingFang SC",sans-serif; }
 .f-editorial-head b { color:var(--ink); letter-spacing:.04em; }
 .f-editorial-like { margin-left:auto; }
-.f-editorial-body { font-size:15.5px; line-height:1.9; color:var(--cmt); }
+.f-editorial-body { font-size:calc(15.5px * var(--fs)); line-height:1.9; color:var(--cmt); }
 .f-editorial-sub { margin:9px 0 0 20px; padding-left:13px; border-left:2px solid var(--rule);
-  font-size:14.5px; line-height:1.8; color:var(--sub); }
+  font-size:calc(14.5px * var(--fs)); line-height:1.8; color:var(--sub); }
 .f-editorial-subuser { color:var(--accent); margin-right:7px; }
 .f-editorial-more { font-size:12px; color:#9a958a; padding:14px 0 0;
   font-family:-apple-system,"PingFang SC",sans-serif; }
 @container (max-width:480px) {
   .f-editorial { padding:30px 18px 30px; }
-  .f-editorial-body-text { font-size:17px; line-height:1.95; }
-  .f-editorial-body-text p:first-of-type::first-letter { font-size:2.7em; }
+  .f-editorial-body-text { font-size:calc(16px * var(--fs)); line-height:1.95; }
+  .f-editorial-body-text p:first-of-type::first-letter { font-size:1.5em; }
   .f-editorial-stats { gap:16px; }
   .f-editorial-snap { display:none; }
 }
@@ -81,7 +84,7 @@
 
 :root {
   --paper:#faf9f5; --rule:#e8e3d8; --rule2:#f2efe8;
-  --ink:#1a1a1a; --muted:#5f5a52; --accent:#8a2b2b; --col:min(760px,92vw); --shell:min(1040px,94vw);
+  --ink:#1a1a1a; --muted:#5f5a52; --accent:#8a2b2b; --col:min(760px,92vw); --shell:min(1040px,94vw); --fs:1;
   --cmt:#262626; --sub:#57534c; --mirror:#8a8478; --btn:#6b6157;
 }
 * { box-sizing:border-box; }
@@ -98,18 +101,30 @@ img { max-width:100%; }
   border-bottom:1px solid var(--rule2); padding:16px 24px 0; }
 .ed-top-inner { max-width:var(--shell); margin:0 auto; display:flex;
   align-items:center; gap:14px; flex-wrap:wrap; }
-.ed-avatar { width:50px; height:50px; border-radius:50%; flex:0 0 auto;
+.ed-avatar { width:50px; height:50px; border-radius:50%; flex:0 0 auto; object-fit:cover;
   background:var(--accent); color:#fff; display:flex; align-items:center;
   justify-content:center; font-family:"Songti SC","SimSun",serif; font-size:22px; }
-.ed-id { min-width:0; }
+.ed-id { min-width:0; flex:1 1 auto; max-width:520px; }
 .ed-id h1 { margin:0; font-family:"Songti SC","SimSun",Georgia,serif;
-  font-size:18px; letter-spacing:.05em; }
+  font-size:22px; font-weight:600; letter-spacing:.05em; }
 .ed-sub { font-size:12.5px; color:var(--muted); letter-spacing:.05em;
   margin-top:4px; line-height:1.6; }
 .ed-sub .nb { white-space:nowrap; }
 .ed-tools { display:flex; align-items:center; gap:9px; flex-wrap:wrap; }
-.ed-pal { margin-left:auto; display:flex; align-items:center; gap:7px; }
+.ed-controls { margin-left:auto; display:flex; align-items:center; gap:18px; flex-wrap:nowrap; }
+.ed-pal { display:flex; align-items:center; gap:7px; }
 .ed-pal-l { font-size:11px; letter-spacing:.14em; color:var(--muted); white-space:nowrap; }
+/* ---------- 字号切换 ---------- */
+.ed-fs { display:flex; align-items:center; gap:6px; }
+.ed-fsl { font-size:11px; letter-spacing:.14em; color:var(--muted); white-space:nowrap; }
+.ed-fs-btn { width:calc(36px * var(--fs)); height:calc(36px * var(--fs)); padding:0; border:1px solid var(--rule); background:transparent;
+  color:var(--btn); cursor:pointer; border-radius:2px; font-family:inherit; line-height:1;
+  display:flex; align-items:center; justify-content:center; transition:.15s; }
+.ed-fs-btn[data-fs="s"] { font-size:calc(15px * var(--fs)); }
+.ed-fs-btn[data-fs="m"] { font-size:calc(22px * var(--fs)); }
+.ed-fs-btn[data-fs="l"] { font-size:calc(32px * var(--fs)); }
+.ed-fs-btn:hover { border-color:var(--accent); color:var(--accent); }
+.ed-fs-btn.on { border-color:var(--accent); color:#fff; background:var(--accent); }
 .ed-sw { width:22px; height:22px; padding:0; border-radius:50%; flex:0 0 auto;
   cursor:pointer; -webkit-appearance:none; appearance:none;
   background:var(--sw); border:1px solid var(--rule);
@@ -136,22 +151,22 @@ img { max-width:100%; }
 .ed-chip:hover { color:var(--accent); }
 .ed-chip.on { color:var(--accent); text-decoration:underline; text-underline-offset:4px; }
 
-.ed-daysep { max-width:var(--col); margin:56px auto 26px; display:flex;
+.ed-daysep { max-width:var(--shell); margin:56px auto 26px; display:flex;
   align-items:center; gap:14px; }
 .ed-daysep:first-child { margin-top:26px; }
 .ed-daysep::before,.ed-daysep::after { content:""; flex:1; height:1px; background:var(--rule2); }
-.ed-daysep span { font-size:11.5px; letter-spacing:.2em; color:var(--accent);
+.ed-daysep span { font-size:calc(11.5px * var(--fs)); letter-spacing:.2em; color:var(--accent);
   white-space:nowrap; font-variant-numeric:tabular-nums; }
 
-.f-editorial-post { max-width:var(--col); margin:0 auto 46px; }
+.f-editorial-post { max-width:var(--shell); margin:0 auto 46px; }
 .f-editorial-eyebrow { display:flex; align-items:baseline; gap:2px 10px; flex-wrap:wrap; }
 .ed-mirror { font-size:11px; letter-spacing:.08em; color:var(--mirror);
   font-variant-numeric:tabular-nums; white-space:nowrap; }
 .f-editorial-src { margin-left:auto; font-size:11px; letter-spacing:.04em; color:#9a958a; }
 .f-editorial-title { font-family:"Songti SC","SimSun",Georgia,serif;
-  font-size:24px; line-height:1.35; letter-spacing:.02em; margin:10px 0 16px;
+  font-size:calc(32px * var(--fs)); font-weight:600; line-height:1.3; letter-spacing:0; margin:10px 0 16px;
   color:var(--ink); }
-.f-editorial-body-text p { font-size:15.5px; line-height:1.95; margin:0 0 14px;
+.f-editorial-body-text p { font-size:calc(16px * var(--fs)); line-height:1.95; margin:0 0 14px;
   color:var(--cmt); letter-spacing:.01em; }
 .ed-fig { margin:18px 0; text-align:center; }
 .ed-fig img { display:block; max-width:100%; height:auto; margin:0 auto;
@@ -161,7 +176,7 @@ img { max-width:100%; }
 .f-editorial-when { font-variant-numeric:tabular-nums; }
 .f-editorial-loc { font-size:11px; color:var(--mirror); letter-spacing:.04em; }
 .sub-to { color:var(--muted); }
-.f-editorial-subtext { font-size:14.5px; line-height:1.8; color:var(--sub); }
+.f-editorial-subtext { font-size:calc(14.5px * var(--fs)); line-height:1.8; color:var(--sub); }
 
 .ed-toggle { display:flex; align-items:center; gap:10px; width:100%;
   margin-top:22px; padding:13px 0 2px; border:0; border-top:1px solid var(--rule);
@@ -178,8 +193,8 @@ img { max-width:100%; }
 mark { background:#f7e6ae; color:inherit; padding:0 1px; border-radius:2px; }
 .hide { display:none !important; }
 
-.ed-colophon { padding:0 34px 34px; }
-.ed-colophon-in { max-width:var(--col); margin:0 auto; padding:24px 0 0; border-top:1px solid var(--rule); }
+.ed-colophon { padding:0 24px 34px; }
+.ed-colophon-in { max-width:var(--shell); margin:0 auto; padding:24px 0 0; border-top:1px solid var(--rule); }
 .ed-colophon h2 { margin:0 0 10px; font-size:11.5px; letter-spacing:.3em;
   color:var(--accent); font-weight:400;
   font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif; }
@@ -199,11 +214,12 @@ mark { background:#f7e6ae; color:inherit; padding:0 1px; border-radius:2px; }
   .ed-top { padding:10px 18px 0; }
   .ed-top-inner { gap:10px; }
   .ed-avatar { width:38px; height:38px; font-size:18px; }
-  .ed-id h1 { font-size:16px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .ed-id h1 { font-size:18px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .ed-sub { font-size:11px; letter-spacing:0; display:-webkit-box;
     -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
   .ed-id { flex:1 1 120px; }
   .ed-pal { gap:6px; }
+  .ed-controls { flex:1 1 100%; margin-left:0; gap:14px; }
   .ed-pal-l { font-size:10px; letter-spacing:.08em; }
   .ed-sw { width:20px; height:20px; }
   .ed-tools { margin-left:0; flex:1 1 100%; gap:7px; }
@@ -215,7 +231,10 @@ mark { background:#f7e6ae; color:inherit; padding:0 1px; border-radius:2px; }
   .ed-chip { flex:0 0 auto; }
   .ed-daysep { margin:40px auto 20px; }
   .ed-daysep span { letter-spacing:.12em; }
-  .f-editorial-title { font-size:20px; }
+  .ed-fs-btn[data-fs="s"] { font-size:calc(13px * var(--fs)); }
+  .ed-fs-btn[data-fs="m"] { font-size:calc(20px * var(--fs)); }
+  .ed-fs-btn[data-fs="l"] { font-size:calc(28px * var(--fs)); }
+  .f-editorial-title { font-size:calc(28px * var(--fs)); }
   .ed-colophon { padding:0 18px 28px; }
   .ed-colophon p { font-size:11.5px; line-height:1.9; }
   .ed-mirror { flex:0 0 100%; }
@@ -235,14 +254,19 @@ mark { background:#f7e6ae; color:inherit; padding:0 1px; border-radius:2px; }
 
 <header class="ed-top">
   <div class="ed-top-inner">
-    <div class="ed-avatar" aria-hidden="true">阿</div>
+    <img class="ed-avatar" src="data:image/jpeg;base64,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" alt="亲爱的阿兰">
     <div class="ed-id">
       <h1>阿兰同学</h1>
       <div class="ed-sub">雪球专栏《我如何管理自己的投资》 · 2026-10-22 起 · 共 5 篇 ·
         1,115 条评论 · <span class="nb">冻结于 2026-10-31 07:59</span></div>
     </div>
+    <div class="ed-controls">
     <div class="ed-pal" role="group" aria-label="底色">
-      <span class="ed-pal-l">底色</span><button class="ed-sw on" data-pal="warm" style="--sw:#faf9f5" type="button" title="暖纸白" aria-label="底色：暖纸白"></button><button class="ed-sw" data-pal="white" style="--sw:#ffffff" type="button" title="纯白" aria-label="底色：纯白"></button><button class="ed-sw" data-pal="cool" style="--sw:#f4f6f8" type="button" title="冷浅灰" aria-label="底色：冷浅灰"></button><button class="ed-sw" data-pal="dark" style="--sw:#16181d" type="button" title="深色" aria-label="底色：深色"></button>
+      <span class="ed-pal-l">底色</span><button class="ed-sw on" data-pal="warm" style="--sw:#faf9f5" type="button" title="暖纸白" aria-label="底色：暖纸白"></button><button class="ed-sw" data-pal="white" style="--sw:#ffffff" type="button" title="纯白" aria-label="底色：纯白"></button><button class="ed-sw" data-pal="cool" style="--sw:#f4f6f8" type="button" title="冷浅灰" aria-label="底色：冷浅灰"></button>      <button class="ed-sw" data-pal="dark" style="--sw:#16181d" type="button" title="深色" aria-label="底色：深色"></button>
+    </div>
+    <div class="ed-fs" role="group" aria-label="字号">
+      <span class="ed-fsl">字号</span><button class="ed-fs-btn on" data-fs="s" type="button" title="标准">A</button><button class="ed-fs-btn" data-fs="m" type="button" title="较大">A</button><button class="ed-fs-btn" data-fs="l" type="button" title="最大">A</button>
+    </div>
     </div>
     <div class="ed-tools">
       <input id="q" type="search" placeholder="搜索正文 / 评论…">
@@ -535,6 +559,17 @@ function setPal(k) {
 }
 sws.forEach(b => b.onclick = () => setPal(b.dataset.pal));
 (function () { let k = 'warm'; try { k = localStorage.getItem('xz-pal') || 'warm'; } catch (_) {} setPal(k); })();
+
+const fss = [...document.querySelectorAll('.ed-fs-btn')];
+const FS = {s:1, m:1.15, l:1.32};
+function setFs(k) {
+  const f = FS[k] || FS.s, s = document.documentElement.style;
+  s.setProperty('--fs', f);
+  fss.forEach(b => b.classList.toggle('on', b.dataset.fs === k));
+  try { localStorage.setItem('xz-fs', k); } catch (_) {}
+}
+fss.forEach(b => b.onclick = () => setFs(b.dataset.fs));
+(function () { let k = 's'; try { k = localStorage.getItem('xz-fs') || 's'; } catch (_) {} setFs(k); })();
 
 const main = document.getElementById('main');
 const posts = [...main.querySelectorAll('.post')];
